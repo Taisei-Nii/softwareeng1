@@ -1,10 +1,12 @@
 #include <stdio.h>
+#ノードの構成を決める。
 struct node {
     char data[3];
     struct node *next;
 };
 
 int main(){
+    #ノードを作る
     struct node node10 = {"10", NULL};
     struct node node9 = {"9", &node10};
     struct node node8 = {"8", &node9};
@@ -16,9 +18,11 @@ int main(){
     struct node node2 = {"2", &node3};
     struct node node1 = {"1", &node2};
 
+    #最初のポインタを設定
     struct node *head = &node1;
     struct node *p;
 
+    #ポインタがNULLにつくまで繰り返す
     for (p = head; p != NULL; p = p->next) 
         printf ("%s ", p->data);
     
