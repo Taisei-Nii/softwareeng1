@@ -1,0 +1,26 @@
+#include <stdio.h>
+struct node {
+    char data[3];
+    struct node *next;
+};
+
+int main(){
+    struct node node10 = {"10", NULL};
+    struct node node9 = {"9", &node10};
+    struct node node8 = {"8", &node9};
+    struct node node7 = {"7", &node8};
+    struct node node6 = {"6", &node7};
+    struct node node5 = {"5", &node6};
+    struct node node4 = {"4", &node5};
+    struct node node3 = {"3", &node4};
+    struct node node2 = {"2", &node3};
+    struct node node1 = {"1", &node2};
+
+    struct node *head = &node1;
+    struct node *p;
+
+    for (p = head; p != NULL; p = p->next) 
+        printf ("%s ", p->data);
+    
+    return 0;
+}
